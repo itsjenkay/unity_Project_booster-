@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 65316231505780472}
   - component: {fileID: 23169408285955408}
   m_Layer: 0
-  m_Name: Rocket Body (2)
+  m_Name: starboard booster 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 65511916883014318}
   - component: {fileID: 23764719225737628}
   m_Layer: 0
-  m_Name: Rocket Body (1)
+  m_Name: nose cone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -40,7 +40,8 @@ public class Rocket : MonoBehaviour {
     //rotation code
     private void Rotate()
     {
-       
+
+        rigidbody.freezeRotation = true;// take manual control of the rotation
         if (Input.GetKey(KeyCode.A))
         {
 
@@ -55,6 +56,7 @@ public class Rocket : MonoBehaviour {
             print("Rotating right");
 
         }
+        rigidbody.freezeRotation = false;// unfrez the manual control 
     }
 
    
