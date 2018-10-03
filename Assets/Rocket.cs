@@ -15,10 +15,11 @@ public class Rocket : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        ProcessInput();
-	}
-
-     void ProcessInput()
+        Rotate();
+        Thrust();
+    }
+    // thrusting code
+    private void Thrust()
     {
         if (Input.GetKey(KeyCode.Space)) // for our thrusting and can thrust while rotating
         {
@@ -28,13 +29,18 @@ public class Rocket : MonoBehaviour {
                 audioSource.Play();
 
             }
-           
+
             print("thrusting");
         }
         else
         {
             audioSource.Stop();
         }
+    }
+    //rotation code
+    private void Rotate()
+    {
+       
         if (Input.GetKey(KeyCode.A))
         {
 
@@ -42,12 +48,14 @@ public class Rocket : MonoBehaviour {
             print("Rotating left");
         }
         else if (Input.GetKey(KeyCode.D))
-       
+
         {
 
             transform.Rotate(-(Vector3.forward));
             print("Rotating right");
-        
+
         }
     }
+
+   
 }
