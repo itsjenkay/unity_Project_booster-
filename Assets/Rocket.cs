@@ -23,6 +23,25 @@ public class Rocket : MonoBehaviour {
         Thrust();
        
     }
+    void OnCollisionEnter (Collision collision)
+    {
+        switch (collision.gameObject.tag)
+        {
+            case "Friendly":
+                // this will not do anything
+                print(" This is a friendly object");
+                break;
+            case " Fuel":
+                // this is not friendly your a dead man
+                print("tuboo");
+                break;
+            default:
+                print("Dead");
+                break;
+        }
+        Debug.Log("collision ocuured");
+        print("collison");
+    }
     // thrusting code
     private void Thrust()
     {
