@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class Rocket : MonoBehaviour {
     [SerializeField] float rcsThrust = 100f;
     [SerializeField] float mainThrust = 100f;
+    [SerializeField] AudioClip mainEngine;
 
     new Rigidbody rigidbody;
     AudioSource audioSource;
@@ -24,8 +25,8 @@ public class Rocket : MonoBehaviour {
 	void Update () {
         if (state == State.Alive)
         {
-            Rotate();
-            Thrust();
+            RespondToRotateInput();
+            RespondToThrustInput();
         }
        
        
@@ -65,14 +66,14 @@ public class Rocket : MonoBehaviour {
     
 
     // thrusting code
-    private void Thrust()
+    private void RespondToThrustInput()
     {
         if (Input.GetKey(KeyCode.Space)) // for our thrusting and can thrust while rotating
         {
             rigidbody.AddRelativeForce(Vector3.up *mainThrust);
             if (!audioSource.isPlaying)
             {
-                audioSource.Play();
+                audioSource.PlayOneShot(mainEngine);
 
             }
 
@@ -84,7 +85,7 @@ public class Rocket : MonoBehaviour {
         }
     }
     //rotation code
-    private void Rotate()
+    private void RespondToRotateInput()
     {
         
         float rotationThisFrame = rcsThrust * Time.deltaTime;
