@@ -8,6 +8,8 @@ public class Rocket : MonoBehaviour {
     [SerializeField] float rcsThrust = 100f;
     [SerializeField] float mainThrust = 100f;
     [SerializeField] AudioClip mainEngine;
+    [SerializeField] AudioClip success;
+    [SerializeField] AudioClip dead;
 
     new Rigidbody rigidbody;
     AudioSource audioSource;
@@ -42,21 +44,34 @@ public class Rocket : MonoBehaviour {
                 break;
             case "Finish":
                 // dude u made it congrats man
-
-                state = State.Alive;
-                Invoke("LoadNextLevel",1f);
+                StartSuccessSequence();
                 break;
             default:
-                state = State.Dying;
-                Invoke("LoadFirstLevel",1f);
+                StartDeadSequence();
                 break;
         }
           
     }
+    private void StartSuccessSequence()
+    {
+        state = State.Alive;
+        audioSource.Stop();
+        audioSource.PlayOneShot(success);
+        Invoke("LoadNextLevel", 1f);
+    }
 
+    private void StartDeadSequence()
+    {
+        state = State.Dying;
+        audioSource.Stop();
+        audioSource.PlayOneShot(dead);
+        Invoke("LoadFirstLevel", 1f);
+    }
+
+    
     private  void LoadNextLevel()
     {
-        SceneManager.LoadScene(1);
+         SceneManager.LoadScene(1);
     }
     private  void LoadFirstLevel()
     {
@@ -70,12 +85,7 @@ public class Rocket : MonoBehaviour {
     {
         if (Input.GetKey(KeyCode.Space)) // for our thrusting and can thrust while rotating
         {
-            rigidbody.AddRelativeForce(Vector3.up *mainThrust);
-            if (!audioSource.isPlaying)
-            {
-                audioSource.PlayOneShot(mainEngine);
-
-            }
+            ApplyingThrust();
 
             print("thrusting");
         }
@@ -84,6 +94,17 @@ public class Rocket : MonoBehaviour {
             audioSource.Stop();
         }
     }
+
+    private void ApplyingThrust()
+    {
+        rigidbody.AddRelativeForce(Vector3.up * mainThrust);
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(mainEngine);
+
+        }
+    }
+
     //rotation code
     private void RespondToRotateInput()
     {

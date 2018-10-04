@@ -408,13 +408,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.407
-  m_Pitch: 0.8
+  m_Volume: 1
+  m_Pitch: 1.27
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 71
+  Priority: 211
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -464,7 +464,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -490,3 +490,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rcsThrust: 200
   mainThrust: 70
+  mainEngine: {fileID: 8300000, guid: cc3def68e3f54644f8ccb150531f0d56, type: 3}
+  loadLevel: {fileID: 8300000, guid: 4f4d14973d49cf04f8b8a69c1b72e1fb, type: 3}
