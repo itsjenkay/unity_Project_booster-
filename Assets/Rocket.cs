@@ -18,6 +18,7 @@ public class Rocket : MonoBehaviour {
     new Rigidbody rigidbody;
     AudioSource audioSource;
     ParticleSystem particle;
+
     enum State { Alive , Dying , Transcending}
 
     State state = State.Alive;
