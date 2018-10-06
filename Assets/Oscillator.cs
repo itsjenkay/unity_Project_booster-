@@ -22,6 +22,11 @@ public class Oscillator : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        // protecting our period from 0
+        if (period <= Mathf.Epsilon)
+        {
+            return;
+        }
         // peiod this reduces the rate of the game engine, 
         float cycle = Time.time / period;
         // this give the exact value of a complet circle 6.24 which is a complete circle
