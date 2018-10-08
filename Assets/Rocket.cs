@@ -85,7 +85,7 @@ public class Rocket : MonoBehaviour {
         audioSource.Stop();
         audioSource.PlayOneShot(success);
         successParticle.Play();
-        Invoke("LoadFirstLevel", levelLoadDelay);
+        Invoke("LoadNextLevel", levelLoadDelay);
     }
 
     private void StartDeadSequence()
@@ -94,7 +94,7 @@ public class Rocket : MonoBehaviour {
         audioSource.Stop();
         audioSource.PlayOneShot(dead);
         deadParticle.Play();
-        Invoke("LoadNextLevel", levelLoadDelay);
+        Invoke("LoadFirstLevel", levelLoadDelay);
     }
    
    
@@ -112,7 +112,8 @@ public class Rocket : MonoBehaviour {
     }
     private  void LoadFirstLevel()
     {
-        SceneManager.LoadScene(0);
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
     }
 
     
