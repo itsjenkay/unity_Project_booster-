@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 0
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
@@ -369,7 +369,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4058165110695686, guid: cd0f122b4c595724dab1fabfb4c63ac8, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -46.2
+      value: -45.8
       objectReference: {fileID: 0}
     - target: {fileID: 4058165110695686, guid: cd0f122b4c595724dab1fabfb4c63ac8, type: 2}
       propertyPath: m_LocalRotation.x
@@ -398,6 +398,11 @@ Prefab:
     - target: {fileID: 4058165110695686, guid: cd0f122b4c595724dab1fabfb4c63ac8, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20828186452882468, guid: cd0f122b4c595724dab1fabfb4c63ac8,
+        type: 2}
+      propertyPath: field of view
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cd0f122b4c595724dab1fabfb4c63ac8, type: 2}
@@ -819,6 +824,16 @@ Prefab:
     - target: {fileID: 4130335951682894, guid: 9147340e71632a3439b91339f5127572, type: 2}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114977282993246750, guid: 9147340e71632a3439b91339f5127572,
+        type: 2}
+      propertyPath: rcsThrust
+      value: 220
+      objectReference: {fileID: 0}
+    - target: {fileID: 114977282993246750, guid: 9147340e71632a3439b91339f5127572,
+        type: 2}
+      propertyPath: mainThrust
+      value: 80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9147340e71632a3439b91339f5127572, type: 2}
@@ -1368,6 +1383,35 @@ Prefab:
     - target: {fileID: 1613835290612428, guid: 9f4a2ff8676f7874d86142458d0d4195, type: 2}
       propertyPath: m_Name
       value: 'Directional Light '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613835290612428, guid: 9f4a2ff8676f7874d86142458d0d4195, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 108715858525054272, guid: 9f4a2ff8676f7874d86142458d0d4195,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 108715858525054272, guid: 9f4a2ff8676f7874d86142458d0d4195,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 108715858525054272, guid: 9f4a2ff8676f7874d86142458d0d4195,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 108715858525054272, guid: 9f4a2ff8676f7874d86142458d0d4195,
+        type: 2}
+      propertyPath: m_Intensity
+      value: 0.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 108715858525054272, guid: 9f4a2ff8676f7874d86142458d0d4195,
+        type: 2}
+      propertyPath: m_BounceIntensity
+      value: 2.04
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9f4a2ff8676f7874d86142458d0d4195, type: 2}

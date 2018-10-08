@@ -21,6 +21,7 @@ public class Rocket : MonoBehaviour {
     ParticleSystem particle;
 
     enum State { Alive , Dying , Transcending}
+    bool collisionsDisable = false;
 
     State state = State.Alive;
 	// Use this for initialization
@@ -40,13 +41,28 @@ public class Rocket : MonoBehaviour {
             RespondToRotateInput();
             RespondToThrustInput();
         }
-       
-       
+        if (Debug.isDebugBuild)
+        {
+            RespondToDebugKeys();
+
+        }
     }
 
+    private void RespondToDebugKeys()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            LoadNextLevel();
+        }
+        else if (Input.GetKeyDown(KeyCode.C))
+        {
+            // this will disable your collison
+            collisionsDisable = !collisionsDisable;// this toggle bertween on and off
+        }
+    }
     void OnCollisionEnter (Collision collision)
     {
-        if (state != State.Alive) { return; }// it ignore collision
+        if (state != State.Alive || collisionsDisable) { return; }// it ignore collision
 
         switch (collision.gameObject.tag)
         {
@@ -80,11 +96,19 @@ public class Rocket : MonoBehaviour {
         deadParticle.Play();
         Invoke("LoadNextLevel", levelLoadDelay);
     }
-
+   
+   
     
     private  void LoadNextLevel()
     {
-         SceneManager.LoadScene(1);
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentSceneIndex + 1;
+        if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
+        {
+            nextSceneIndex = 0;
+        }
+        SceneManager.LoadScene(nextSceneIndex);
+
     }
     private  void LoadFirstLevel()
     {
